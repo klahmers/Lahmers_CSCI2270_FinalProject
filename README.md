@@ -1,1 +1,2 @@
 # Lahmers_CSCI2270_FinalProject
+This program will implement linked lists and dynamic memory allocation to store data for workouts (in linked lists), calculate unstored data for workouts, print previous workouts, and delete specific workouts. Other functions for the program might be added if the program does not meet all of the project requirements. The program will have a display menu with all the functions of the program and will use classes throughout the main code. 
