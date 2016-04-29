@@ -1,3 +1,6 @@
+#include <cstdint> //or <stdint.h>
+#include <stdint.h>
+#include <limits>
 #include <iostream>
 #include <sstream>
 #include "FinalProject.h"
@@ -17,6 +20,7 @@ int main()
             cin>>Date;
 	    while(!Go.validDate(Date)){
 			cout<<"Re-Enter a valid workout date (MM/DD/YYYY): ";
+			cin.ignore( std::numeric_limits<int32_t>::max(),'\n');
 			cin.clear();
            		cin>>Date;
 	    }
@@ -43,6 +47,7 @@ int main()
 	    cin>> deleteDate;
 	    while(!Go.validDate(deleteDate)){
 			cout << "Re-Enter a valid workout date (MM/DD/YYYY): ";
+			cin.ignore( std::numeric_limits<int32_t>::max(),'\n');
 			cin.clear();
 			cin>>deleteDate;
 	    }
