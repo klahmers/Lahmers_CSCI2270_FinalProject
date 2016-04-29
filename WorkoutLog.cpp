@@ -15,6 +15,11 @@ int main()
             int Sets, Weight, Reps;
             cout<<"Enter workout date (MM/DD/YYYY): ";
             cin>>Date;
+	    while(!Go.validDate(Date)){
+			cout<<"Re-Enter a valid workout date (MM/DD/YYYY): ";
+			cin.clear();
+           		cin>>Date;
+	    }
             cout<<"Enter exercise: ";
             cin.ignore();
             getline(cin, Exercise);
@@ -32,13 +37,19 @@ int main()
         }
         else if(x==2){//delete
             string deleteDate;
-            cout<<"Enter workout date to delete (MM/DD/YYYY): ";
-            cin.ignore();
-            cin>>deleteDate;
+            cout<<"Enter workout date to delete (MM/DD/YYYY): " << endl;
+	    cin.clear();
+	    cin.ignore();
+	    cin>> deleteDate;
+	    while(!Go.validDate(deleteDate)){
+			cout << "Re-Enter a valid workout date (MM/DD/YYYY): ";
+			cin.clear();
+			cin>>deleteDate;
+	    }
             Go.deleteExercise(deleteDate);
             Go.printMenu();
-            cin>>x;
-        }
+            cin>>x;        
+	}
         else if(x==3){//print
             Go.printWorkouts();
             Go.printMenu();

@@ -27,6 +27,45 @@ void FinalProject::printSubMenu(){
     cout<<"3. Calculate Big Three Index"<<endl;
     cout<<"========================="<<endl;
 }
+bool FinalProject::validDate(string date){
+
+	
+	unsigned short monthlen[]={31,28,31,30,31,30,31,31,30,31,30,31};
+
+	if(date.length()!= 10){
+		return false;
+	}
+	
+	if(date[2]!= '/' && date[5] !='/'){
+		return false;
+	}
+	
+	for(int i = 0; i < date.length(); ++i){
+		if(i != 2 && i != 5 ){
+			if( ((int) date[i] - '0') > 10 ){
+				return false;
+			}
+		}
+	}
+	
+	int month = ((int) date[0] - '0') *10+ ((int) date[1] - '0'); 
+	//cout <<"month = " << month << endl;//DEBUG purposes
+	int day = ((int) date[3] - '0') *10 + ((int) date[4] - '0') ;
+	//cout << "day = "<< day << endl;//DEBUG purposes
+	int year=((int) date[6] - '0')*1000 + ((int) date[7] - '0') *100 + ((int) date[8] - '0') *10+((int) date[9] - '0') ;
+	//cout << "year = " << year << endl;//DEBUG purposes
+
+	if( month == 0 || month > 12 || day == 0|| year == 0 ){
+		return false;
+	}
+	
+	if (day>monthlen[month-1]){
+		return false;
+	}
+	return true;
+
+
+}
 void FinalProject::insertExercise(string date, string exercise, int sets, int weight, int reps){
     if(head==NULL){
         head=new Workout(date, exercise, sets, weight, reps, NULL, NULL);
@@ -43,7 +82,7 @@ void FinalProject::insertExercise(string date, string exercise, int sets, int we
 }
 void FinalProject::deleteExercise(string date){//delete node
     Workout *tmpExercise = NULL;
-    Workout *searchExercise = head;
+   Workout *searchExercise = head;
     bool found = false;
     while(!found && searchExercise != NULL){
         if(searchExercise->date == date)
