@@ -46,6 +46,7 @@ class FinalProject
         void printWorkouts();
         void PR(std::string exercise, int weight);
         void searchPR(std::string exercise);
+	bool validDate(std::string date);
         int totalWeightLifted();
         int Big3Index(int squat, int deadlift, int bench, int bodyWeight);
     protected:
