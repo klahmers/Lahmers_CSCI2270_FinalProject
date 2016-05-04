@@ -6,6 +6,7 @@
 #include "FinalProject.h"
 using namespace std;
 
+
 int main()
 {
     FinalProject Go;
@@ -30,10 +31,28 @@ int main()
             stringstream ss(Exercise);
             cout<<"Enter Number of Sets: ";
             cin>>Sets;
+            while(cin.fail()){
+                cout << "You didn't enter an integer value! Please enter the number of sets performed:" << endl;
+                cin.clear();
+                cin.ignore(256, '\n');
+                cin >> Sets;
+            }
             cout<<"Enter weight lifted: ";
             cin>>Weight;
+            while(cin.fail()){
+                cout << "You didn't enter an integer value! Please enter the weight value:" << endl;
+                cin.clear();
+                cin.ignore(256, '\n');
+                cin >> Weight;
+            }
             cout<<"Enter Reps Performed: ";
             cin>>Reps;
+            while(cin.fail()){
+                cout << "You didn't enter an integer value! Please enter the number of reps performed:" << endl;
+                cin.clear();
+                cin.ignore(256, '\n');
+                cin >> Reps;
+            }
             Go.insertExercise(Date, Exercise, Sets, Weight, Reps);
             Go.printMenu();
             cin.ignore();
@@ -69,6 +88,12 @@ int main()
             stringstream ss1(PRexercise);
             cout<<"Enter PR weight: "<<endl;
             cin>>PRweight;
+            while(cin.fail()){
+                cout << "You didn't enter an integer value! Please enter the PR weight value:" << endl;
+                cin.clear();
+                cin.ignore(256, '\n');
+                cin >> PRweight;
+            }
             Go.PR(PRexercise, PRweight);
             Go.printMenu();
             cin>>x;
@@ -92,8 +117,20 @@ int main()
                 int reps, weight, liftMax;
                 cout<<"Enter weight lifted: ";
                 cin>>weight;
+                while(cin.fail()){
+                    cout << "You didn't enter an integer value! Please enter the weight value:" << endl;
+                    cin.clear();
+                    cin.ignore(256, '\n');
+                    cin >> weight;
+                }
                 cout<<"Enter reps preformed: ";
                 cin>>reps;
+                while(cin.fail()){
+                    cout << "You didn't enter an integer value! Please enter the number of reps:" << endl;
+                    cin.clear();
+                    cin.ignore(256, '\n');
+                    cin >> reps;
+                }
                 liftMax=Go.maxCalc(reps, weight);
                 cout<<"Your 1 rep max is "<<liftMax<<endl;
                 Go.printMenu();
@@ -111,12 +148,36 @@ int main()
                 int totalIndex;
                 cout<<"Enter squat 1RM: "<<endl;
                 cin>>squat;
+                while(cin.fail()){
+                    cout << "You didn't enter an integer value! Please enter the squat 1RM value:" << endl;
+                    cin.clear();
+                    cin.ignore(256, '\n');
+                    cin >> squat;
+                }
                 cout<<"Enter deadlift 1RM: "<<endl;
                 cin>>deadlift;
+                while(cin.fail()){
+                    cout << "You didn't enter an integer value! Please enter the deadlift 1RM value:" << endl;
+                    cin.clear();
+                    cin.ignore(256, '\n');
+                    cin >> deadlift;
+                }
                 cout<<"Enter bench press 1RM: "<<endl;
                 cin>>bench;
+                while(cin.fail()){
+                    cout << "You didn't enter an integer value! Please enter the bench press 1RM value:" << endl;
+                    cin.clear();
+                    cin.ignore(256, '\n');
+                    cin >> bench;
+                }
                 cout<<"Enter bodyWeight: "<<endl;
                 cin>>bodyWeight;
+                while(cin.fail()){
+                    cout << "You didn't enter an integer value! Please enter your bodyweight:" << endl;
+                    cin.clear();
+                    cin.ignore(256, '\n');
+                    cin >> bodyWeight;
+                }
                 totalIndex=Go.Big3Index(squat, deadlift, bench, bodyWeight);
                 cout<<"Your Big 3 Index is about "<<totalIndex<<endl;
                 Go.printMenu();
